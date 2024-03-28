@@ -105,7 +105,7 @@ az network lb create -g kubernetes \
 Verify the `kubernetes-pip` static IP address was created correctly in the `kubernetes` Resource Group and chosen region:
 
 ```shell
-az network public-ip list --query="[?name=='kubernetes-pip'].{ResourceGroup:resourceGroup, \
+az network public-ip list -g kubernetes --query="[?name=='kubernetes-pip'].{ResourceGroup:resourceGroup, \
   Region:location,Allocation:publicIPAllocationMethod,IP:ipAddress}" -o table
 ```
 
